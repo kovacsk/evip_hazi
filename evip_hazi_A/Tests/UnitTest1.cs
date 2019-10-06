@@ -14,7 +14,7 @@ namespace tests
             shop.RegisterProduct("C", 20);
             shop.RegisterProduct("E", 50);
 
-            Assert.Equal("10", shop.GetVal("A"));
+            Assert.Equal(10, shop.getVal("A"));
             Assert.Equal(130, shop.GetPrice("ACEE"));
         }
     }

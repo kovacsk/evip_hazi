@@ -9,7 +9,7 @@ namespace evip_hazi_A
     public class Shop
     {
         IDictionary<string, int> productlist = new Dictionary<string, int>();
-
+        IDictionary<string, List<int>> discountlist = new Dictionary<string, List<int>>();
 
         public void RegisterProduct(String nev, int ertek)
         {
@@ -36,18 +36,21 @@ namespace evip_hazi_A
 
         public void RegisterCountDiscoun(string n, int c, int d)
         {
-
+            List<int> lista = new List<int>();
+            lista.Add(c);
+            lista.Add(d);
+            discountlist.Add(new KeyValuePair<string, List<int>>(n, lista));
         }
 
-        public string GetVal(string sz)
+        public int getVal(string sz)
         {
             if (productlist.ContainsKey(sz))
             {
-                return productlist[sz].ToString();
+                return productlist[sz];
             }
             else
             {
-                return null;
+                return 0;
             }
         }
     }
