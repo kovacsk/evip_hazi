@@ -13,9 +13,10 @@ namespace tests
             shop.RegisterProduct("A", 10);
             shop.RegisterProduct("C", 20);
             shop.RegisterProduct("E", 50);
-
+            shop.RegisterCountDiscoun("A", 3, 4);
             Assert.Equal(10, shop.getVal("A"));
             Assert.Equal(130, shop.GetPrice("ACEE"));
+            Assert.Equal(190, shop.GetPrice("AAAAAEEE"));
         }
     }
 }

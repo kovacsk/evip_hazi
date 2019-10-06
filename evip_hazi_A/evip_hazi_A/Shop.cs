@@ -31,7 +31,7 @@ namespace evip_hazi_A
                     }
                 }
         }
-            return price;
+            return (price - totalCut(characters)) ;
         }
 
         public void RegisterCountDiscoun(string n, int c, int d)
@@ -52,6 +52,30 @@ namespace evip_hazi_A
             {
                 return 0;
             }
+        }
+        public int totalCut(char[] c)
+        {
+            int cut = 0;
+
+            foreach (KeyValuePair<string, List<int>> item in discountlist)
+            {
+                int matched = 0;
+
+                for (int i = 0; i < c.Length; i++)
+                    {
+                    if (c[i].ToString().Equals(item.Key))
+                    {
+                        matched += 1;
+                        if (matched % 4 == 0)
+                        {
+                            cut += getVal(c[i].ToString());
+                            matched = 0;
+                        }
+                    }
+                    
+                }
+            }
+            return cut;
         }
     }
 }
