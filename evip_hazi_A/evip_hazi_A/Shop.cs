@@ -17,7 +17,7 @@ namespace evip_hazi_A
 
         }
 
-        public void GetPrice(string n)
+        public int GetPrice(string n)
         {
             string[] characters = n.Split();
             int price = 0;
@@ -31,7 +31,7 @@ namespace evip_hazi_A
                     }
                 }
         }
-
+            return price;
         }
     }
 }
