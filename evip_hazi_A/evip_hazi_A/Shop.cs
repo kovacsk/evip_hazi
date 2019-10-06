@@ -33,5 +33,10 @@ namespace evip_hazi_A
         }
             return price;
         }
+
+        public void RegisterCountDiscoun(string n, int c, int d)
+        {
+
+        }
     }
 }
