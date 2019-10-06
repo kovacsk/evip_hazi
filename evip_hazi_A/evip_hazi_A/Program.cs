@@ -10,9 +10,6 @@ namespace evip_hazi_A
     {
         static void Main(string[] args)
         {
-
-
-
         }
     }
 }

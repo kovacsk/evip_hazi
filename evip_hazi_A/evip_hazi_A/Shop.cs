@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace evip_hazi_A
 {
-    class Shop
+    public class Shop
     {
         IDictionary<string, int> productlist = new Dictionary<string, int>();
 
@@ -19,13 +19,13 @@ namespace evip_hazi_A
 
         public int GetPrice(string n)
         {
-            string[] characters = n.Split();
+            char[] characters = n.ToCharArray();
             int price = 0;
 
             for (int i = 0; i < characters.Length; i++) { 
                 foreach (KeyValuePair<string, int> item in productlist)
                 {
-                    if (characters[i] == item.Key)
+                    if ((characters[i].ToString()).Equals(item.Key))
                     {
                         price += item.Value;
                     }
@@ -37,6 +37,18 @@ namespace evip_hazi_A
         public void RegisterCountDiscoun(string n, int c, int d)
         {
 
+        }
+
+        public string GetVal(string sz)
+        {
+            if (productlist.ContainsKey(sz))
+            {
+                return productlist[sz].ToString();
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
